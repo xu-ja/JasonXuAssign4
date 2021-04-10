@@ -1,8 +1,15 @@
 package jason.xu.s991545529;
 
+import android.Manifest;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
@@ -10,6 +17,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.core.app.ActivityCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -36,7 +44,7 @@ public class JasonActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.jasonDrawerLayout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -54,6 +62,38 @@ public class JasonActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        double longit, latit;
+        String longitude, latitude;
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (id == R.id.jasonAppBarLocation) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
+            } else {
+                Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+                Log.d("LOCATION", "before nested if");
+
+                if (locationGPS != null) {
+                    latit = locationGPS.getLatitude();
+                    longit = locationGPS.getLongitude();
+                    latitude = String.valueOf(latit);
+                    longitude = String.valueOf(longit);
+                    View contextView = (View)findViewById(R.id.jasonDrawerLayout);
+                    Log.d("LOCATION", "before snackbar");
+
+                    Snackbar.make(contextView, latitude + ", " + longitude, Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    Log.d("LOCATION", "after snackbar");
+                }
+                Log.d("LOCATION", "after nested if");
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
