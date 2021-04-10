@@ -23,6 +23,7 @@ public class DownloadFrag extends Fragment {
 
         root = inflater.inflate(R.layout.fragment_download, container, false);
 
+
         return root;
     }
 }

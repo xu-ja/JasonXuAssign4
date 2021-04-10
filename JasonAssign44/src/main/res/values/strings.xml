@@ -18,4 +18,9 @@
     <string name="toolbar_location">Location</string>
     <string name="full_name">Jason Xu</string>
     <string name="student_id">991545529</string>
+    <string-array name="spinner_items">
+        <item>Flower</item>
+        <item>Nature</item>
+        <iitem>Sky</iitem>
+    </string-array>
 </resources>
