@@ -1,4 +1,4 @@
-package jason.xu.s991545529.ui.gallery;
+package jason.xu.s991545529.ui.download;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import jason.xu.s991545529.R;
 
-public class GalleryFragment extends Fragment {
+public class DownloadFrag extends Fragment {
 
     private GalleryViewModel galleryViewModel;
 

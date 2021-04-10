@@ -1,4 +1,4 @@
-package jason.xu.s991545529.ui.gallery;
+package jason.xu.s991545529.ui.download;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
