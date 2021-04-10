@@ -12,21 +12,11 @@
         android:theme="@style/Theme.JasonAssign4.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+            android:id="@+id/jasonToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:popupTheme="@style/Theme.JasonAssign4.PopupOverlay" >
-
-        <button
-            android:id="@+id/jasonAppBarLocation"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:visibility="visible"
-            app:showAsAction="always"
-            android:icon="@drawable/ic_menu_gallery"/>
-
-        </androidx.appcompat.widget.Toolbar>
+            app:popupTheme="@style/Theme.JasonAssign4.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
