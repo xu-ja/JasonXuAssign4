@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import jason.xu.s991545529.R;
 
-public class HomeFragment extends Fragment {
+public class HomeFrag extends Fragment {
 
     private HomeViewModel homeViewModel;
 

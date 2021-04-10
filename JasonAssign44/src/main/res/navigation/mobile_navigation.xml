@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="jason.xu.s991545529.ui.home.HomeFragment"
+        android:name="jason.xu.s991545529.ui.home.HomeFrag"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
@@ -15,11 +15,11 @@
         android:id="@+id/nav_gallery"
         android:name="jason.xu.s991545529.ui.gallery.GalleryFragment"
         android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_download" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="jason.xu.s991545529.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_webservice" />
 </navigation>

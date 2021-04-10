@@ -4,14 +4,21 @@ import android.Manifest;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Criteria;
+import android.location.Geocoder;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -26,9 +33,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Locale;
+
 public class JasonActivity extends AppCompatActivity {
 
+    private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
+    private static final long MIN_TIME_BW_UPDATES = 1000 * 60 * 1;
+
     private AppBarConfiguration mAppBarConfiguration;
+    LocationManager locationManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +52,8 @@ public class JasonActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.jasonToolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,31 +84,48 @@ public class JasonActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        double longit, latit;
-        String longitude, latitude;
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        double longitude = 0;
+        double latitude = 0;
+        Geocoder geocoder;
+        List<Address> user = null;
+
+        // Tries to find latitude and longitude if the item in toolbar is clicked.
         if (id == R.id.jasonAppBarLocation) {
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
                     ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 101);
             } else {
                 Location locationGPS = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-                Log.d("LOCATION", "before nested if");
+                Criteria criteria = new Criteria();
+                String bestProvider = locationManager.getBestProvider(criteria, false);
 
+                Log.d("LOCATION", "before nested if");
+                View contextView = (View) findViewById(R.id.jasonDrawerLayout);
                 if (locationGPS != null) {
-                    latit = locationGPS.getLatitude();
+/*                    latit = locationGPS.getLatitude();
                     longit = locationGPS.getLongitude();
                     latitude = String.valueOf(latit);
                     longitude = String.valueOf(longit);
-                    View contextView = (View)findViewById(R.id.jasonDrawerLayout);
-                    Log.d("LOCATION", "before snackbar");
+                    Log.d("LOCATION", "before snackbar");*/
+                    geocoder = new Geocoder(this);
+                    try {
+                        user = geocoder.getFromLocation(locationGPS.getLatitude(), locationGPS.getLongitude(), 1);
+                        latitude=(double)user.get(0).getLatitude();
+                        longitude=(double)user.get(0).getLongitude();
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }
 
                     Snackbar.make(contextView, latitude + ", " + longitude, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                     Log.d("LOCATION", "after snackbar");
+                } else {
+                    Snackbar.make(contextView, "location not found", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
                 }
                 Log.d("LOCATION", "after nested if");
             }
+
         }
         return super.onOptionsItemSelected(item);
     }
