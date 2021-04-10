@@ -16,20 +16,13 @@ import jason.xu.s991545529.R;
 
 public class DownloadFrag extends Fragment {
 
-    private GalleryViewModel galleryViewModel;
+    View root;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        galleryViewModel =
-                new ViewModelProvider(this).get(GalleryViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_download, container, false);
-        final TextView textView = root.findViewById(R.id.text_gallery);
-        galleryViewModel.getText().observe(getViewLifecycleOwner(), new Observer<String>() {
-            @Override
-            public void onChanged(@Nullable String s) {
-                textView.setText(s);
-            }
-        });
+
+        root = inflater.inflate(R.layout.fragment_download, container, false);
+
         return root;
     }
 }
