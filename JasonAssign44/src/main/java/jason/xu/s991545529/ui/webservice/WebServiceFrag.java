@@ -59,10 +59,12 @@ public class WebServiceFrag extends Fragment {
         jsonText = (TextView) root.findViewById(R.id.jasonTextViewJSON);
 
         Button webservice = (Button) root.findViewById(R.id.jasonButtonWebService);
+        // Starts web service when button is clicked
         webservice.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
                 String zipCodeStr = String.valueOf(zipCode.getText());
+                // Displays alert dialog with error if zip code is less than 5 digits
                 if (zipCodeStr.length() < 5) {
                     // Alert dialog to tell user that zip code is invalid
                     AlertDialog.Builder builder = new AlertDialog.Builder(root.getContext());
@@ -85,6 +87,7 @@ public class WebServiceFrag extends Fragment {
                     zipCode.setError(getResources().getString(R.string.zip_invalid));
                 } else {
                     int zipCodeInt = Integer.parseInt(zipCodeStr);
+                    // gets JSON information using provided ZIP code
                     getJSON(zipCodeInt);
                 }
             }
@@ -95,12 +98,14 @@ public class WebServiceFrag extends Fragment {
 
     public void getJSON(final int zip) {
         new AsyncTask<Void, Void, Void>() {
+
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();
             }
-            @SuppressLint("StaticFieldLeak")
+
             @Override
+            // Sets up the connection to the Open Weather API using provided ZIP code
             protected Void doInBackground(Void... params) {
                 try {
                     URL url = new URL("https://samples.openweathermap.org/data/2.5/weather?zip="
@@ -116,7 +121,7 @@ public class WebServiceFrag extends Fragment {
 
                     data = new JSONObject(json.toString());
 
-                    // If cod is not 200, something went wrong...
+                    // If cod is not 200, something went wrong... and display appropriate alert dialog
                     if (data.getInt("cod") != 200) {
                         Log.d("WEATHER NOT RECEIVED", data.toString());
                         // Alert dialog to tell user that zip code does not exist
@@ -146,6 +151,7 @@ public class WebServiceFrag extends Fragment {
                 }
                 return null;
             }
+
             @Override
             protected void onPostExecute(Void Void) {
                 if (data != null) {
