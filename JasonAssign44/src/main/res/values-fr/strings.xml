@@ -2,18 +2,39 @@
 <!-- Section: Monday 6:00pm-9:00pm -->
 <resources>
     <string name="app_name">Jason Xu 991545529</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Ouvrir le tiroir de navigation</string>
+    <string name="navigation_drawer_close">Fermer le panneau de navigation</string>
     <string name="nav_header_title">Jason Xu</string>
     <string name="nav_header_subtitle">jason.xu@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="nav_header_desc">En-tête de navigation</string>
+    <string name="action_settings">Paramètres</string>
 
-    <string name="menu_home">Home Fragment</string>
-    <string name="menu_download">Download Fragment</string>
-    <string name="menu_webservice">WebService Fragment</string>
-    <string name="alert_dialog_exit">Do you want to exit?</string>
-    <string name="yes">Yes</string>
-    <string name="no">No</string>
-    <string name="toolbar_location">Location</string>
+    <string name="menu_home">Fragment de la maison</string>
+    <string name="menu_download">Télécharger le fragment</string>Do you want to exit?
+
+    <string name="menu_webservice">Fragment de service Web</string>
+    <string name="alert_dialog_exit">Voulez-vous sortir?</string>
+    <string name="yes">Oui</string>
+    <string name="no">Non</string>
+    <string name="ok">D\'accord</string>
+    <string name="toolbar_location">Emplacement</string>
+    <string name="not_implemented">Fonctionnalité non implémentée ...</string>
+    <string name="location_error">Aucun emplacement n\'a pu être trouvé ...</string>
+    <string name="full_name">Jason Xu</string>
+    <string name="student_id">991545529</string>
+    <string-array name="spinner_items">
+        <item>Fleur</item>
+        <item>Nature</item>
+        <item>Ciel</item>
+    </string-array>
+    <string name="download">Télécharger l\'image</string>
+    <string name="downloading">Téléchargement de l\'image ...</string>
+    <string name="flower_link">https://images.fineartamerica.com/images-medium-large-5/rachel-dahlia-flower-square-barbara-griffin.jpg</string>
+    <string name="nature_link">https://baynature.org/wp-content/uploads/2019/12/200118-SQUARE.jpg</string>
+    <string name="sky_link">https://thumbs.dreamstime.com/b/fantastic-clouds-against-blue-sky-square-fantastic-soft-clouds-against-blue-sky-natural-composition-square-166358257.jpg</string>
+    <string name="webservice_text">Fragment de service Web</string>
+    <string name="zip_hint">Entrer le code postal</string>
+    <string name="webservice_button">Services Web</string>
+    <string name="zip_not_exist">Le code postal fourni n\'existe pas ...</string>
+    <string name="zip_invalid">Le code postal fourni doit être composé de 5 chiffres</string>
 </resources>
