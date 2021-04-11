@@ -37,6 +37,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
     }
 
     @Override
+    // Sets up the spinner to be able to hold and ImageView and TextView
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         ViewHolder mViewHolder = new ViewHolder();
         if (convertView == null) {

@@ -39,7 +39,6 @@ public class DownloadFrag extends Fragment {
 
     View root;
     Spinner spinner;
-    String spinnerSelection;
     ImageView imageView;
     Button button;
     ProgressDialog progressDialog;
@@ -64,6 +63,7 @@ public class DownloadFrag extends Fragment {
 
         button = (Button) root.findViewById(R.id.jasonButtonDownload);
         imageView = (ImageView) root.findViewById(R.id.jasonImageView);
+        // Set up progress dialog
         progressDialog = new ProgressDialog(root.getContext());
         progressDialog.setIndeterminate(true);
         progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -72,6 +72,7 @@ public class DownloadFrag extends Fragment {
         progressDialog.setMessage(getResources().getString(R.string.downloading));
 
         urlSelected = getResources().getString(R.string.flower_link);
+        // Associate each spinner image with a URL so an image can be downloaded
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView adapterView, View view, int i, long l) {
@@ -87,6 +88,7 @@ public class DownloadFrag extends Fragment {
             public void onNothingSelected(AdapterView adapterView){}
         });
 
+        // Start download when button is clicked
         button.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
@@ -102,7 +104,8 @@ public class DownloadFrag extends Fragment {
             progressDialog.show();
         }
 
-        protected Bitmap doInBackground(URL...urls){
+        // Setup the connection to the provided URL
+        protected Bitmap doInBackground(URL...urls) {
             URL url = urls[0];
             HttpURLConnection connection = null;
             try{
@@ -118,7 +121,7 @@ public class DownloadFrag extends Fragment {
         }
 
         // When all async task done
-        protected void onPostExecute(Bitmap result){
+        protected void onPostExecute(Bitmap result) {
             // Hide the progress dialog
             progressDialog.dismiss();
             if(result != null){
