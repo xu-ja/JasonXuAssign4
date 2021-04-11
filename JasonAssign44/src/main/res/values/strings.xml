@@ -16,6 +16,8 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="toolbar_location">Location</string>
+    <string name="not_implemented">Feature not implemented...</string>
+    <string name="location_error">No location could be found...</string>
     <string name="full_name">Jason Xu</string>
     <string name="student_id">991545529</string>
     <string-array name="spinner_items">

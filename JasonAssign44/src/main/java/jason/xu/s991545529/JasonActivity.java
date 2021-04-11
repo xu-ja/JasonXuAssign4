@@ -57,7 +57,7 @@ public class JasonActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, getResources().getString(R.string.not_implemented), Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -99,7 +99,6 @@ public class JasonActivity extends AppCompatActivity {
                 Criteria criteria = new Criteria();
                 String bestProvider = locationManager.getBestProvider(criteria, false);
 
-                Log.d("LOCATION", "before nested if");
                 View contextView = (View) findViewById(R.id.jasonDrawerLayout);
                 if (locationGPS != null) {
 /*                    latit = locationGPS.getLatitude();
@@ -118,12 +117,10 @@ public class JasonActivity extends AppCompatActivity {
 
                     Snackbar.make(contextView, latitude + ", " + longitude, Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
-                    Log.d("LOCATION", "after snackbar");
                 } else {
-                    Snackbar.make(contextView, "location not found", Snackbar.LENGTH_LONG)
+                    Snackbar.make(contextView, getResources().getString(R.string.location_error), Snackbar.LENGTH_LONG)
                             .setAction("Action", null).show();
                 }
-                Log.d("LOCATION", "after nested if");
             }
 
         }

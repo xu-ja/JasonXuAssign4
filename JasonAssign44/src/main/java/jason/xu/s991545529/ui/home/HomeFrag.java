@@ -36,7 +36,7 @@ public class HomeFrag extends Fragment {
 
     public void content() {
         long date = System.currentTimeMillis();
-        SimpleDateFormat dateTime = new SimpleDateFormat("MMM dd yyyy : hh-mm-ss a");
+        SimpleDateFormat dateTime = new SimpleDateFormat("MMM dd yyyy - hh:mm:ss a");
         String dateTimeString = dateTime.format(date);
         dateTimeTextView.setText(dateTimeString);
         refresh(1000);

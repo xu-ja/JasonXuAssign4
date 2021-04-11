@@ -18,7 +18,7 @@
         tools:layout="@layout/fragment_download" />
 
     <fragment
-        android:id="@+id/jasonNavWebservice"
+        android:id="@+id/jasonNavWebService"
         android:name="jason.xu.s991545529.ui.webservice.WebServiceFrag"
         android:label="@string/menu_webservice"
         tools:layout="@layout/fragment_webservice" />
