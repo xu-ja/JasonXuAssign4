@@ -7,7 +7,7 @@
     <string name="nav_header_title">Jason Xu</string>
     <string name="nav_header_subtitle">jason.xu@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_settings">Setti ngs</string>
 
     <string name="menu_home">Home Fragment</string>
     <string name="menu_download">Download Fragment</string>
@@ -21,6 +21,6 @@
     <string-array name="spinner_items">
         <item>Flower</item>
         <item>Nature</item>
-        <iitem>Sky</iitem>
+        <item>Sky</item>
     </string-array>
 </resources>
