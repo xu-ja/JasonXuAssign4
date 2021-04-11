@@ -28,4 +28,7 @@
     <string name="flower_link">https://images.fineartamerica.com/images-medium-large-5/rachel-dahlia-flower-square-barbara-griffin.jpg</string>
     <string name="nature_link">https://baynature.org/wp-content/uploads/2019/12/200118-SQUARE.jpg</string>
     <string name="sky_link">https://thumbs.dreamstime.com/b/fantastic-clouds-against-blue-sky-square-fantastic-soft-clouds-against-blue-sky-natural-composition-square-166358257.jpg</string>
+    <string name="webservice_text">WebService Fragment</string>
+    <string name="zip_hint">Enter ZIP code</string>
+    <string name="webservice_button">Web Services</string>
 </resources>
