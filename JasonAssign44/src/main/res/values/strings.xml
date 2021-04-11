@@ -15,6 +15,7 @@
     <string name="alert_dialog_exit">Do you want to exit?</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="ok">Ok</string>
     <string name="toolbar_location">Location</string>
     <string name="not_implemented">Feature not implemented...</string>
     <string name="location_error">No location could be found...</string>
@@ -33,4 +34,6 @@
     <string name="webservice_text">WebService Fragment</string>
     <string name="zip_hint">Enter ZIP code</string>
     <string name="webservice_button">Web Services</string>
+    <string name="zip_not_exist">Provided ZIP code does not exist...</string>
+    <string name="zip_invalid">Provided ZIP code must be 5 digits</string>
 </resources>
