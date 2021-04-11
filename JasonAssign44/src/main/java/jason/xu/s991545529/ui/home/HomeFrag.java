@@ -30,9 +30,8 @@ public class HomeFrag extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
         root = inflater.inflate(R.layout.fragment_home, container, false);
-
         dateTimeTextView = root.findViewById(R.id.jasonTextDateTime);
-
+        // runs content() which constantly updates the Date and Time
         content();
 
         return root;
@@ -40,12 +39,15 @@ public class HomeFrag extends Fragment {
 
     public void content() {
         long date = System.currentTimeMillis();
+        // Formats date and time
         SimpleDateFormat dateTime = new SimpleDateFormat("MMM dd yyyy - hh:mm:ss a");
         String dateTimeString = dateTime.format(date);
         dateTimeTextView.setText(dateTimeString);
+        // Refreshes date and time every 1000 milliseconds
         refresh(1000);
     }
 
+    // Refreshes content() method on intervals of milliseconds parameter
     private void refresh(int milliseconds) {
         final Handler handler = new Handler();
         final Runnable runnable = new Runnable() {
