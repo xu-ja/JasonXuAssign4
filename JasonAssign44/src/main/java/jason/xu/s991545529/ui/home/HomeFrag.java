@@ -17,6 +17,10 @@ import java.text.SimpleDateFormat;
 
 import jason.xu.s991545529.R;
 
+/*
+    Jason Xu 991545529
+    Section: Mondays 6:00pm-9:00pm
+ */
 public class HomeFrag extends Fragment {
 
     TextView dateTimeTextView;

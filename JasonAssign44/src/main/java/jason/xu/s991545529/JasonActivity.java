@@ -37,6 +37,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
 
+/*
+    Jason Xu 991545529
+    Section: Mondays 6:00pm-9:00pm
+ */
 public class JasonActivity extends AppCompatActivity {
 
     private static final long MIN_DISTANCE_CHANGE_FOR_UPDATES = 10;
