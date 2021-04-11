@@ -36,6 +36,7 @@ public class DownloadFrag extends Fragment {
         spinnerImages = new int[]{R.drawable.flower, R.drawable.nature, R.drawable.sky};
 
         CustomAdapter customAdapter = new CustomAdapter(root.getContext(), spinnerTitles, spinnerImages);
+        spinner = (Spinner) root.findViewById(R.id.jasonSpinner);
         spinner.setAdapter(customAdapter);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
