@@ -40,6 +40,8 @@ public class DownloadFrag extends Fragment {
     Button button;
     ProgressDialog progressDialog;
     URL url;
+    String urlSelected;
+    AsyncTask downloadImage;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -56,21 +58,37 @@ public class DownloadFrag extends Fragment {
         spinner = (Spinner) root.findViewById(R.id.jasonSpinner);
         spinner.setAdapter(customAdapter);
 
+        button = (Button) root.findViewById(R.id.jasonButtonDownload);
+        imageView = (ImageView) root.findViewById(R.id.jasonImageView);
+        progressDialog = new ProgressDialog(root.getContext());
+        progressDialog.setIndeterminate(true);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.setTitle(getResources().getString(R.string.menu_download));
+        progressDialog.setIcon(getResources().getDrawable(R.drawable.ic_menu_gallery));
+        progressDialog.setMessage(getResources().getString(R.string.downloading));
+
+        urlSelected = getResources().getString(R.string.flower_link);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView adapterView, View view, int i, long l) {
                 if (i == 0) {
-
+                    urlSelected = getResources().getString(R.string.flower_link);
                 } else if (i == 1) {
-
+                    urlSelected = getResources().getString(R.string.nature_link);
                 } else if (i == 2) {
-
+                    urlSelected = getResources().getString(R.string.sky_link);
                 }
             }
             @Override
             public void onNothingSelected(AdapterView adapterView){}
         });
 
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                downloadImage = new DownloadTask().execute(stringToURL(urlSelected));
+            }
+        });
         return root;
     }
 
