@@ -23,4 +23,5 @@
         <item>Nature</item>
         <item>Sky</item>
     </string-array>
+    <string name="download">Download Image</string>
 </resources>
