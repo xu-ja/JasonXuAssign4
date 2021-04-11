@@ -7,7 +7,7 @@
     <string name="nav_header_title">Jason Xu</string>
     <string name="nav_header_subtitle">jason.xu@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Setti ngs</string>
+    <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home Fragment</string>
     <string name="menu_download">Download Fragment</string>

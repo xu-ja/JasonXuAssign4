@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/jasonNavHome">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/jasonNavHome"
         android:name="jason.xu.s991545529.ui.home.HomeFrag"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
+        android:id="@+id/jasonNavDownload"
         android:name="jason.xu.s991545529.ui.download.DownloadFrag"
         android:label="@string/menu_download"
         tools:layout="@layout/fragment_download" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
+        android:id="@+id/jasonNavWebservice"
         android:name="jason.xu.s991545529.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_webservice"
         tools:layout="@layout/fragment_webservice" />
